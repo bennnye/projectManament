@@ -5,6 +5,10 @@
  */
 package GUIs;
 
+import Objects.Employee;
+import java.sql.Date;
+import javafx.scene.control.PasswordField;
+
 /**
  *
  * @author benny
@@ -86,6 +90,11 @@ public class NewEmployee extends javax.swing.JFrame {
         });
 
         AddNewEmplyeeActionPerformed.setText("Add Emplyee");
+        AddNewEmplyeeActionPerformed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddNewEmplyeeActionPerformedActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,6 +197,32 @@ public class NewEmployee extends javax.swing.JFrame {
         pm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformedActionPerformed
+
+    private void AddNewEmplyeeActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewEmplyeeActionPerformedActionPerformed
+        try { 
+
+            //this creates the date 
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+
+            LocalDate hiredate = LocalDate.parse(HireDateField.getText(), formatter); 
+
+             
+
+//this creates an object 
+
+            Employee newEmplyee = new Emplyee(EmployeeIDField.getText();, FirstNameField.getText();, LastNameField.getText();, PasswordField.getText();, DepartmentField.getText();, OfficeField.getText();, PhoneNumberField.getText();, Date.valueOf(hiredate);, Double.parseDouble(HourlyRateField.getText();)); 
+
+             
+
+        } catch (Exception e) { 
+
+            System.out.println("Error in Newemplyee class: " + e); 
+
+            JOptionPane.showMessageDialog(null, "Error entering new project. New project not added to the database."); 
+
+        } 
+    }//GEN-LAST:event_AddNewEmplyeeActionPerformedActionPerformed
 
     /**
      * @param args the command line arguments
